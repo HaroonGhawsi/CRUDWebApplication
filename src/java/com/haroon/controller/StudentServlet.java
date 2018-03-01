@@ -21,6 +21,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "StudentServlet", urlPatterns = {"/StudentServlet"})
 public class StudentServlet extends HttpServlet {
+    
+    /**
+     * Inject the EJB Component
+     */
 
     @EJB
     private StudentDaoLocal studentDao;
@@ -34,6 +38,10 @@ public class StudentServlet extends HttpServlet {
         int studentId=0;
         if(studentIdStr!=null && !studentIdStr.equals(""))
             studentId=Integer.parseInt(studentIdStr);
+        
+        /**
+         * Getting the request parameters
+         */
 
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
@@ -41,8 +49,16 @@ public class StudentServlet extends HttpServlet {
         int yearLevel = 0;
         if(yearLevelStr != null && !yearLevelStr.equals(""))
             yearLevel=Integer.parseInt(yearLevelStr);
+        
+        /**
+         * Processing the request parameters
+         */
 
         Student student = new Student(studentId, firstname, lastname, yearLevel);
+        
+        /**
+         * Null validation process
+         */
         
         if("Add".equalsIgnoreCase(action)){
             studentDao.addStudent(student);

@@ -10,7 +10,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 /**
- *
+ * EJB Component interface
  * @author haroon.ghawsi
  */
 @Local

@@ -16,7 +16,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
- *
+ * Student Data Model (ENTITY)
  * @author haroon.ghawsi
  */
 
@@ -24,6 +24,10 @@ import javax.persistence.Table;
 @Table
 @NamedQueries(@NamedQuery(name="Student.getAll", query="SELECT e FROM Student e"))
 public class Student implements Serializable {
+    
+    /**
+     * Student Attributes
+     */
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -35,10 +39,21 @@ public class Student implements Serializable {
     private String lastname;
     @Column
     private int yearLevel;
+            
+    /**
+     * Empty Constructor
+     */
 
     public Student() {
     }
     
+    /**
+     * Student Model Constructor
+     * @param studentId
+     * @param firstname
+     * @param lastname
+     * @param yearLevel 
+     */
 
     public Student(int studentId, String firstname, String lastname, int yearLevel) {
         this.studentId = studentId;
@@ -47,7 +62,10 @@ public class Student implements Serializable {
         this.yearLevel = yearLevel;
     }
     
-    
+    /**
+     * Getter and Setter Methods
+     * @return 
+     */
 
     public int getStudentId() {
         return studentId;
